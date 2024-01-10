@@ -16,3 +16,9 @@ queue.appendleft()
 list_of_ints = list(map(int,input().split(' ')))
 ```
 - Useful for fast transition of numbers splitted with ' ' into list of ints
+
+```Python
+S = set()
+S.add('element')
+```
+- Just like append, you don't need to assign it to S again! (Not `S = S.add(e)`)
