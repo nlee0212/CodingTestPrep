@@ -42,7 +42,7 @@ for i in range(N):
     heapq.heappush(heap, -a)
 
 heap = [1,2,3,4]
-heap = heapq.heapify(heap)
+heapq.heapify(heap)
 ```
 - initialize heap as just `list()`
 - `heappush(heap,element)`: construct min-heap
