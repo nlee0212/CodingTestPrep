@@ -40,8 +40,13 @@ for i in range(N):
         else:
             print(0)
     heapq.heappush(heap, -a)
+
+heap = [1,2,3,4]
+heap = heapq.heapify(heap)
 ```
 - initialize heap as just `list()`
 - `heappush(heap,element)`: construct min-heap
 - `heappop(heap)`: pop min element
 - If you want to make a max-heap, you can simply put '-' when pushing & popping.
+- If you already have a list, use `heapify`.
+
