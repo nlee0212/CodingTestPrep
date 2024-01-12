@@ -50,3 +50,12 @@ heapq.heapify(heap)
 - If you want to make a max-heap, you can simply put '-' when pushing & popping.
 - If you already have a list, use `heapify`.
 
+## Hash
+```Python
+import hashlib
+input_data = input()
+encoded_data = input_data.encode() # 문자열의 바이트 객체
+result = hashlib.sha256(encoded_data).hexdigest() 
+print(result) # 해시 결과
+```
+- `sha256` provides the hash value of a given encoded string.
