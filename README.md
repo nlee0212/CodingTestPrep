@@ -6,4 +6,4 @@
   -   `{number}.py`: {number}번 문제의 풀이 코드를 담고 있습니다.
 -   풀이한 연습문제는 아래 사이트/자료를 참고하여 선정하였습니다.
   - `tony9402`님의 [코딩테스트 대비 문제집 with Baekjoon](https://github.com/tony9402/baekjoon)
-  - 패스트 캠퍼스 [개발자 취업 합격 패스 With 코딩테스트, 기술면접 초격차 패키지 Online](https://fastcampus.co.kr/dev_online_devjob) (현재 어떠한 이유로 강의가 내려간 상태입니다.)
+  - 패스트 캠퍼스 [개발자 취업 합격 패스 With 코딩테스트, 기술면접 초격차 패키지 Online](https://fastcampus.co.kr/dev_online_devjob) (현재 강의가 내려간 상태입니다.)
