@@ -104,3 +104,16 @@ for n in range(N):
 - `find()`: find the oldest ancestor & update the parents of all nodes to him
 - `union()`: set the parent of the second node as the parent of the first node if they weren't originally from the same union
 - make sure to `find()` once more when calculating the final child count!
+
+## Other Useful Python Functions
+### Execution
+```Python
+s = "1+3-5"
+exec(f"res = {s}")
+print(res) # -1
+
+res = eval(s)
+print(res) # -1
+```
+- `exec()`: execute the given code, including saving into a variable. No return.
+- `eval()`: execute the given code & return the result
