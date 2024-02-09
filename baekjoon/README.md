@@ -11,6 +11,11 @@ queue = deque()
 rotated_queue = queue.rotate(-1) # left
 queue.popleft()
 queue.appendleft()
+l = [1,2,3,4]
+queue.extend(l) # queue += l
+queue.extendleft(l) # queue = l + queue
+queue.insert(idx,element) # insert element at idx
+queue.index(element) # find index of element
 ```
 - Useful for queue construction
 
@@ -105,6 +110,41 @@ for n in range(N):
 - `find()`: find the oldest ancestor & update the parents of all nodes to him
 - `union()`: set the parent of the second node as the parent of the first node if they weren't originally from the same union
 - make sure to `find()` once more when calculating the final child count!
+
+### Topology Sort
+```Python
+from collections import defaultdict
+import heapq
+
+graph = defaultdict(list)
+degree = dict()
+
+for start,end in nodes:
+    heapq.heappush(graph[start],end)
+    degree[end] = degree.get(end,0) + 1
+
+level_0s = list(set(POSSIBLE_NUMS)-set(degree))
+heapq.heapify(level_0s)
+result = []
+
+while level_0s:
+    popped = heapq.heappop(level_0s)
+    result.append(popped)
+    for node in graph[popped]:
+        degree[node] -= 1
+        if degree[node] == 0:
+            heapq.heappush(level_0s,node)
+
+for r in result: print(r,end=' ')
+```
+1. Construct a graph with directed edges
+2. Save the level of each node in real-time
+3. Start with nodes with level 0, think of this as a sorted queue
+4. Pop the queue of level 0 nodes, which will return the smallest node
+5. Eliminate the node from the graph by decreasing the degrees of its children.
+6. If any of its children become a level 0 node, add them to the sorted queue.
+7. Repeat until the queue is empty.
+8. If the queue gets empty before all nodes are visited, then it means that there is a cycle within the graph (ERROR when thinking of a topology sort)
 
 ## Other Useful Python Functions
 ### Execution
