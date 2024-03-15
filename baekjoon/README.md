@@ -71,20 +71,28 @@ print(result) # 해시 결과
 ### Union Find
 ```Python
 def find_parent(parent_dict,num):
-    if num == parent_dict[num]:
-        return num
-    else:
-        parent = find_parent(parent_dict,parent_dict[num])
+    # path compression
+    if num != parent_dict[num]:
+        parent = find_parent(parent_dict,parent_dict[num]) 
         parent_dict[num] = parent
-        return parent_dict[num]
+    return parent_dict[num]
 
 def union(parent_dict,child_num,num1,num2):
     p1 = find_parent(parent_dict,num1)
     p2 = find_parent(parent_dict,num2)
 
-    if p1 != p2:
-        parent_dict[p2] = p1
-        child_num[p1] += child_num[p2]
+    ## union-by-rank + smaller nodes be the parents if equal condition
+    if rank[p1] > rank[p2]:
+        parent[p2] = p1
+    elif rank[p1] < rank[p2]:
+        parrent[p1] = p2
+    else:
+        if p1 < p2:
+            parent[p2] = p1
+            rank[p1] += 1
+        else:
+            parent[p1] = p2
+            rank[p2] += 1
 
 N = int(input())
 
@@ -93,6 +101,7 @@ for n in range(N):
     
     parent = {}
     child_num = {}
+    rank = {}
     
     for f in range(F):
         n1,n2 = input().split(' ')
@@ -100,9 +109,12 @@ for n in range(N):
         if n1 not in parent:
             parent[n1] = n1
             child_num[n1] = 1
+            rank[n1] = 0
+            
         if n2 not in parent:
             parent[n2] = n2
             child_num[n2] = 1
+            rank[n2] = 0
 
         union(parent,child_num,n1,n2)
         print(child_num[find_parent(parent,n1)])
