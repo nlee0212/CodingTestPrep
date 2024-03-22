@@ -8,7 +8,7 @@ from collections import deque
 
 queue = deque()
 ...
-rotated_queue = queue.rotate(-1) # left
+queue.rotate(-1) # left
 queue.popleft()
 queue.appendleft()
 l = [1,2,3,4]
