@@ -84,15 +84,19 @@ def union(parent_dict,child_num,num1,num2):
     ## union-by-rank + smaller nodes be the parents if equal condition
     if rank[p1] > rank[p2]:
         parent[p2] = p1
+        child_num[p1] += child_num[p2]
     elif rank[p1] < rank[p2]:
         parrent[p1] = p2
+        child_num[p2] += child_num[p1]
     else:
         if p1 < p2:
             parent[p2] = p1
             rank[p1] += 1
+            child_num[p1] += child_num[p2]
         else:
             parent[p1] = p2
             rank[p2] += 1
+            child_num[p2] += child_num[p1]
 
 N = int(input())
 
