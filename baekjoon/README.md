@@ -174,3 +174,9 @@ print(res) # -1
 ```
 - `exec()`: execute the given code, including saving into a variable. No return.
 - `eval()`: execute the given code & return the result
+
+### Recursion
+```Python
+import sys
+sys.setrecursionlimit(10**6)
+```
